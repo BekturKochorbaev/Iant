@@ -1,6 +1,8 @@
-FROM nginx:stable-alpine
-WORKDIR /etc/nginx
+FROM nginx:alpine
+
+# Копируем кастомную конфигурацию
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY default.conf /etc/nginx/conf.d/default.conf
+
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
